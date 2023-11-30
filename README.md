@@ -263,6 +263,12 @@ The Abstract Factory pattern would address these issues by providing an abstract
 life with Abstract Factory 💕  
 explore creational package / abstract factory package
 
+
+***What is ther Difference Between Factory And Abstract Factory***
+
+> the Factory Method pattern deals with creating a single product through a method, while the Abstract Factory pattern deals with creating families of related products through multiple interfaces.
+
+
 ## 4-Builder Pattern
  
  
@@ -412,3 +418,5 @@ In this example, each time a new shape is needed, the client code directly creat
 
 life with ProtoType 💕  
 explore creational package / prototype package
+
+_______________________
