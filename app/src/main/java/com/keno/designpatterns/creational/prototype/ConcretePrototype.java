@@ -1,46 +1,49 @@
 package com.keno.designpatterns.creational.prototype;
 
-import android.widget.Toast;
 
-import java.util.Objects;
+class ConcreteProtoType{
+    public static void main(String[] args) {
+        // Creating prototype objects
+        Shape circlePrototype = new Circle();
+        Shape squarePrototype = new Square();
 
-class ConcretePrototype implements CloneablePrototype{
+        // Creating new objects by cloning prototypes
+        Shape newCircle = circlePrototype.clone();
+        Shape newSquare = squarePrototype.clone();
 
-    private String testData;
-    private String name;
-    private String test;
-
-    public ConcretePrototype(String testData) {
-        this.testData = testData;
+        // Drawing the cloned objects
+        newCircle.draw();  // Output: Drawing a Circle
+        newSquare.draw();  // Output: Drawing a Square
     }
+}
+// Prototype interface
+interface Shape extends Cloneable {
+    Shape clone();
+    void draw();
+}
 
-    public String getData() {
-        return testData;
-    }
-
-
-
-    public void setData(String testData) {
-        this.testData = testData;
+// Concrete prototype implementations
+class Circle implements Shape {
+    @Override
+    public Shape clone() {
+        return new Circle();
     }
 
     @Override
-    public CloneablePrototype clone() {
-        return new ConcretePrototype(testData);
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Square implements Shape {
+    @Override
+    public Shape clone() {
+        return new Square();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(testData);
+    public void draw() {
+        System.out.println("Drawing a Square");
     }
-
-
-    @Override
-    public String toString() {
-        return "ConcretePrototype{" +
-                "testData='" + testData + '\'' +
-                '}';
-    }
-
 }
 
